@@ -34,9 +34,9 @@ def get_ad():
         f.write(x + '\n')
     f.close()
 def get_trend():
-    cnxn = pyodbc.connect("Driver={SQL Server}; Server=FCNUTILITYSQL; Database=FCNTREND-OSCE; Trusted_Connection=yes;")
+    cnxn = pyodbc.connect("Driver={SQL Server}; Server=SERVER; Database=DATABASE; Trusted_Connection=yes;")
     cursor = cnxn.cursor()
-    cursor.execute("SELECT COMP_NAME FROM [FCNTREND-OSCE].[dbo].[TBL_CLIENT_INFO] WHERE (COMP_NAME LIKE 'D%' OR COMP_NAME LIKE 'L%') AND (COMP_NAME NOT LIKE 'Lab%' AND COMP_NAME NOT LIKE 'Ly%' AND COMP_NAME NOT LIKE 'def%' AND COMP_NAME NOT LIKE 'dom%' ) ORDER BY COMP_NAME;")
+    cursor.execute("SQL QUERY HERE")
     format1 = []
     for row in cursor:
         format1.append(str(row))
@@ -63,9 +63,9 @@ def get_trend():
         f.write(x + '\n')
     f.close()
 def get_trendee():
-    cnxn = pyodbc.connect("Driver={SQL Server}; Server=FCNUTILITYSQL; Database=MobileArmorDB; Trusted_Connection=yes;")
+    cnxn = pyodbc.connect("Driver={SQL Server}; Server=SERVER; Database=DATABASE; Trusted_Connection=yes;")
     cursor = cnxn.cursor()
-    cursor.execute('SELECT DeviceName FROM [MobileArmorDB].[dbo].[Device] WHERE IsDeleted = 0 ORDER BY DeviceName;')
+    cursor.execute("SQL QUERY HERE")
     format1 = []
     for row in cursor:
         format1.append(str(row))
@@ -92,9 +92,9 @@ def get_trendee():
         f.write(x + '\n')
     f.close()
 def get_helpDesk():
-    cnxn = pyodbc.connect("Driver={SQL Server}; Server=FCNUTILITYSQL; Database=WebHelpDesk; Trusted_Connection=yes;")
+    cnxn = pyodbc.connect("Driver={SQL Server}; Server=SERVER; Database=DATABASE; Trusted_Connection=yes;")
     cursor = cnxn.cursor()
-    cursor.execute("SELECT ASSET_NUMBER FROM ASSET WHERE (ASSET_NUMBER LIKE 'D%' OR ASSET_NUMBER LIKE 'L%') AND (ASSET_NUMBER NOT LIKE 'Label%') AND (STATUS_ID = 1 AND DELETED = 0) ORDER BY ASSET_NUMBER;")
+    cursor.execute("SQL QUERY HERE")
     format1 = []
     for row in cursor:
         format1.append(str(row))
